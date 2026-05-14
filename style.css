@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --dark-blue: #012a4a;
+  --blue-1: #013a63;
+  --blue-2: #01497c;
+  --blue-3: #014f86;
+  --blue-4: #2a6f97;
+  --blue-5: #2c7da0;
+  --blue-6: #468faf;
+  --blue-7: #61a5c2;
+  --blue-8: #89c2d9;
+  --blue-9: #a9d6e5;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      135deg,
+      var(--dark-blue),
+      var(--blue-2),
+      var(--blue-5),
+      var(--blue-8)
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.sub-title {
+  color: var(--blue-9);
+  margin-top: 10px;
+}
+
+.progress-wrapper {
+  position: relative;
+}
+
+.progress-line {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  position: absolute;
+  top: 22px;
+  z-index: 1;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--blue-7),
+    var(--blue-9)
+  );
+  border-radius: 30px;
+  transition: 0.4s ease;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--blue-9);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.step-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: 0.4s;
+  color: white;
+  font-weight: 600;
+}
+
+.step.active .step-circle {
+  background: linear-gradient(
+    135deg,
+    var(--blue-6),
+    var(--blue-8)
+  );
+  transform: scale(1.1);
+  box-shadow:
+    0 0 20px rgba(137, 194, 217, 0.6);
+}
+
+.form-step {
+  display: none;
+  animation: fadeSlide 0.5s ease;
+}
+
+.form-step.active {
+  display: block;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-label {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--blue-9);
+  box-shadow: 0 0 15px rgba(169, 214, 229, 0.3);
+  color: white;
+}
+
+.error {
+  color: #ffd6d6;
+  margin-top: 6px;
+  display: block;
+  font-size: 13px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.custom-btn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  transition: 0.4s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    var(--blue-6),
+    var(--blue-8)
+  );
+  color: white;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 25px rgba(137, 194, 217, 0.4);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+
+  .form-container {
+    padding: 30px 20px;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .step span {
+    font-size: 12px;
+  }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .sub-title {
+    font-size: 14px;
+  }
+
+}
